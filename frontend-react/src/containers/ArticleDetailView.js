@@ -25,9 +25,13 @@ class ArticleDetail extends React.Component {
 
     render() {
         return (
-            <Card title={this.state.article.title} style={{ backgroundColor: '#28D322' }}>
-                <p>{this.state.article.content}</p>
-            </Card>
+            <div>
+                <Card title={this.state.article.title}>
+                    <p>{this.state.article.content}</p>
+                </Card>
+
+            </div>
+
         )
 
     }
