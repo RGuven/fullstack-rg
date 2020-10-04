@@ -1,4 +1,23 @@
-from rest_framework.generics import ListAPIView, RetrieveAPIView
+from rest_framework import viewsets
+
+
+from articles.models import Article
+from .serializers import ArticleSerializer
+
+
+class ArticleViewSet(viewsets.ModelViewSet):
+    serializer_class = ArticleSerializer
+    queryset = Article.objects.all()
+
+
+"""
+
+Aşagıdakilerin yerine sadece yukardakilerle hepsini yapabiliyoruz
+
+
+"""
+"""
+from rest_framework.generics import ListAPIView, RetrieveAPIView, CreateAPIView, DestroyAPIView, UpdateAPIView
 from articles.models import Article
 from .serializers import ArticleSerializer
 
@@ -11,3 +30,19 @@ class ArticleListView(ListAPIView):
 class ArticleDetailView(RetrieveAPIView):
     queryset = Article.objects.all()
     serializer_class = ArticleSerializer
+
+
+class ArticleCreateView(CreateAPIView):
+    queryset = Article.objects.all()
+    serializer_class = ArticleSerializer
+
+
+class ArticleUpdateView(DestroyAPIView):
+    queryset = Article.objects.all()
+    serializer_class = ArticleSerializer
+
+
+class ArticleDeleteView(UpdateAPIView):
+    queryset = Article.objects.all()
+    serializer_class = ArticleSerializer
+"""
